@@ -1,4 +1,4 @@
--- # Bull [ STEAM_0:0:42437032 ]
+-- Copyright 2016 Bull© [ STEAM_0:0:42437032 ]
 
 file.CreateDir("downloaded_assets")
 
