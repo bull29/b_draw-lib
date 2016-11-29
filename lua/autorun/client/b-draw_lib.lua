@@ -46,7 +46,7 @@ local function fetchAvatarAsset( id64, size )
 		return fetchedavatars[ id64 .. " " .. size ]
 	end
 
-	http.Fetch("http://steamcommunity.com/profiles/" .. id64 .. "/?xml=1",function( body )
+	fetch("http://steamcommunity.com/profiles/" .. id64 .. "/?xml=1",function( body )
 		local link = body:match("http://cdn.akamai.steamstatic.com/steamcommunity/public/images/avatars/.-jpg")
 		if not link then return end
 
