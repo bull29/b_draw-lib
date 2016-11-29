@@ -46,6 +46,8 @@ local function fetchAvatarAsset( id64, size )
 		return fetchedavatars[ id64 .. " " .. size ]
 	end
 
+	fetchedavatars[ id64 .. " " .. size ] = "http://i.imgur.com/uaYpdq7.png"
+
 	fetch("http://steamcommunity.com/profiles/" .. id64 .. "/?xml=1",function( body )
 		local link = body:match("http://cdn.akamai.steamstatic.com/steamcommunity/public/images/avatars/.-jpg")
 		if not link then return end
@@ -66,4 +68,3 @@ function draw.SteamAvatar( avatar, res, x, y, width, height, color )
 	local url = fetchAvatarAsset( avatar, res )
 	draw.WebImage( url, x, y, width, height, color )	
 end
-
