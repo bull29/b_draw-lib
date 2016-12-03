@@ -1,5 +1,5 @@
 --[[
-    A Garry's mod Web drawing library
+    A Simple Garry's mod drawing library
     Copyright (C) 2016 Bull [STEAM_0:0:42437032]
 
     This program is free software: you can redistribute it and/or modify
