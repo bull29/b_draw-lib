@@ -3,9 +3,9 @@ Ever wanted to draw textures/materials from the internet rather than vtfs/hardmo
 Me too. 
 
 # Current functions: 
-Draw a webimage from a url in an identical fashion to draw.RoundedBox
+Draw a webimage from a url in an identical fashion to draw.RoundedBox. Optional angle argument. be warned, angled textures have a different offset than straight ones.
 
-`draw.WebImage( url, x, y, width, height, color=Color(255,255,255) )`
+`draw.WebImage( url, x, y, width, height, color=Color(255,255,255), angle=nil )`
 
 Draw a steam user's avatar; sizes are "large", "medium", "small"
 
