@@ -61,7 +61,7 @@ local function fetchAvatarAsset( id64, size )
 	end)
 end
 
-function draw.WebImage( url, x, y, width, height, color, angle )
+function draw.WebImage( url, x, y, width, height, color, angle, cornerorigin )
 	color = color or white
 
 	surface.SetDrawColor( color.r, color.g, color.b, color.a )
@@ -69,7 +69,11 @@ function draw.WebImage( url, x, y, width, height, color, angle )
 	if not angle then
 		surface.DrawTexturedRect( x, y, width, height)
 	else
-		surface.DrawTexturedRectRotated( x, y, width, height, angle )
+		if not cornerorigin then
+			surface.DrawTexturedRectRotated( x, y, width, height, angle )
+		else
+			surface.DrawTexturedRectRotated( x + width / 2, y + height / 2, width, height, angle )
+		end
 	end
 end
 
