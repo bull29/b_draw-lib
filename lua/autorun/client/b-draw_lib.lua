@@ -78,6 +78,5 @@ function draw.WebImage( url, x, y, width, height, color, angle, cornerorigin )
 end
 
 function draw.SteamAvatar( avatar, res, x, y, width, height, color )
-	local url = fetchAvatarAsset( avatar, res )
-	draw.WebImage( url, x, y, width, height, color )
+	draw.WebImage( fetchAvatarAsset( avatar, res ), x, y, width, height, color )
 end
