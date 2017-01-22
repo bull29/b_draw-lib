@@ -45,14 +45,15 @@ local function fetch_asset(url)
 end
 
 local function fetchAvatarAsset( id64, size )
+	id64 = id64 or "BOT"
 	size = size == "medium" and "medium" or size == "small" and "" or size == "large" and "full" or ""
 
 	if fetchedavatars[ id64 .. " " .. size ] then
 		return fetchedavatars[ id64 .. " " .. size ]
 	end
 
-	fetchedavatars[ id64 .. " " .. size ] = "http://i.imgur.com/uaYpdq7.png"
-
+	fetchedavatars[ id64 .. " " .. size ] = id64 == "BOT" and "http://steamcdn-a.akamaihd.net/steamcommunity/public/images/avatars/09/09962d76e5bd5b91a94ee76b07518ac6e240057a_full.jpg" or "http://i.imgur.com/uaYpdq7.png"
+	if id64 == "BOT" then return end
 	fetch("http://steamcommunity.com/profiles/" .. id64 .. "/?xml=1",function( body )
 		local link = body:match("http://cdn.akamai.steamstatic.com/steamcommunity/public/images/avatars/.-jpg")
 		if not link then return end
