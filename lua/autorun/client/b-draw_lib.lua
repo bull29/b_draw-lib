@@ -1,6 +1,7 @@
 --[[
     A Simple Garry's mod drawing library
     Copyright (C) 2016 Bull [STEAM_0:0:42437032] [76561198045139792]
+    Freely acquirable at https://github.com/bull29/b_draw-lib
     You can use this anywhere for any purpose as long as you acredit the work to the original author with this notice.
     Optionally, if you choose to use this within your own software, it would be much appreciated if you could inform me of it.
     I love to see what people have done with my code! :)
@@ -15,7 +16,7 @@ local white = Color( 255, 255, 255 )
 local surface = surface
 local crc = util.CRC
 local _error = Material("error")
-
+local math = math
 local mats = {}
 local fetchedavatars = {}
 
@@ -74,6 +75,16 @@ function draw.WebImage( url, x, y, width, height, color, angle, cornerorigin )
 			surface.DrawTexturedRectRotated( x, y, width, height, angle )
 		else
 			surface.DrawTexturedRectRotated( x + width / 2, y + height / 2, width, height, angle )
+		end
+	end
+end
+
+function draw.SeamlessWebImage( url, parentwidth, parentheight, xrep, yrep, color )
+	color = color or white
+	local xiwx, yihy = math.ceil( parentwidth/xrep ), math.ceil( parentheight/yrep )
+	for x = 0, xrep - 1 do
+		for y = 0, yrep - 1 do
+			draw.WebImage( url, x*xiwx, y*yihy, xiwx, yihy, color )
 		end
 	end
 end
